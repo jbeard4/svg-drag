@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:m="http://msdl.cs.mcgill.ca/" width="100%" height="100%">
+
+	<style>
+		rect.simple-dragging-rect {
+			fill : none;
+			stroke : black;
+			stroke-dasharray : 1;
+		}
+	</style>
+
+	<rect id="test1" width="100" height="100" fill="red" stroke="black" x="0" y="0"/>
+
+	<circle id="test2" r="50" cx="200" cy="200" fill="blue" stroke="black"/>
+
+	<g transform="translate(300,100)" id="test3">
+		<rect width="100" height="100" fill="green" stroke="black" x="0" y="0"/>
+
+		<circle r="50" cx="50" cy="50" fill="yellow" stroke="black"/>
+		<text y="50">This is a group of shapes and text</text>
+	</g>
+
+	<script xlink:href="drag-and-drop.js"/>
+	<script>
+		//first setup the canvas
+		//var makeSVGElementDraggable = svgDrag.setupCanvasForDragging()
+
+		//you can also setup the canvas this way, in which case a wireframe rect will be used to drag. Possibly more efficient for complex groups of shapes.
+		var makeSVGElementDraggable = svgDrag.setupCanvasForDragging(document.documentElement,true)
+
+		//hook up drag behaviour for all test
+		var test1 = document.getElementById("test1");
+		makeSVGElementDraggable(test1);
+
+		var test2 = document.getElementById("test2");
+		makeSVGElementDraggable(test2);
+
+		var test3 = document.getElementById("test3");
+		makeSVGElementDraggable(test3);
+	
+		//to remove drag behaviour, just remove the event listener returned by makeSVGElementDraggable from the element
+		
+	</script><rect class="simple-dragging-rect" x="0" y="0" width="100" height="100" display="none"/>
+	
+</svg>
